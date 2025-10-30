@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>مرجع جنگنده‌های مدرن</title>
+<style>
+  :root { --bg:#0d0d0d; --text:#f2f2f2; --gray:#bfbfbf; }
+  body { margin:0; font-family:sans-serif; background:var(--bg); color:var(--text); }
+  header { background:#111; display:flex; align-items:center; justify-content:space-between; padding:10px 20px; }
+  header .logo img { height:50px; border-radius:8px; }
+  nav a { color:var(--gray); text-decoration:none; margin-left:16px; }
+  nav a:hover { color:var(--text); }
+  section { padding:20px; max-width:1000px; margin:auto; }
+  .articles { display:grid; grid-template-columns:repeat(auto-fill,minmax(250px,1fr)); gap:16px; }
+  .article { background:#1a1a1a; padding:16px; border-radius:10px; position:relative; cursor:pointer; }
+  .article img { width:100%; border-radius:10px; cursor:pointer; }
+  .article h3 { margin:0 0 8px; }
+  .article p { color:var(--gray); }
+  input, textarea { width:100%; margin-top:8px; padding:10px; border-radius:8px; border:none; background:#2a2a2a; color:white; }
+  button { background:#333; color:white; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; margin-top:8px; }
+  button:hover { background:#444; }
+  .hero { text-align:center; background:url('https://upload.wikimedia.org/wikipedia/commons/7/77/RAF_F-35B_integration_flying_training_with_USAF_B-2_30092019_-_4.jpg') center/cover; height:60vh; display:flex; align-items:center; justify-content:center; color:white; }
+  .hero h1 { background:rgba(0,0,0,0.6); padding:20px 40px; border-radius:10px; font-size:2rem; }
+  footer { background:#111; text-align:center; color:var(--gray); padding:20px; margin-top:20px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><img src="https://i0.wp.com/www.flyajetfighter.com/wp-content/uploads/2025/05/aerodynamique-avion-de-chasse.jpg?ssl=1" alt="لوگو"></div>
+  <nav><a href="#home">خانه</a><a href="#articles">مقالات</a><a href="#about">درباره</a></nav>
+</header>
+
+<section class="hero" id="home"><h1>مرجع جنگنده‌های مدرن دنیا</h1></section>
+
+<section id="articles">
+  <h2>مقالات</h2>
+  <div class="articles" id="articles-container"></div>
+  <div class="new-article">
+    <h3>افزودن مقاله جدید (فقط ادمین)</h3>
+    <form id="new-article-form">
+      <label>رمز ادمین:</label><input type="password" id="admin-password" required placeholder="رمز ادمین">
+      <label>عنوان مقاله:</label><input type="text" id="article-title" required>
+      <label>خلاصه مقاله:</label><textarea id="article-summary" rows="3" required></textarea>
+      <label>متن کامل مقاله:</label><textarea id="article-full" rows="6" required></textarea>
+      <label>لینک تصویر:</label><input type="text" id="article-image" placeholder="https://example.com/image.jpg" required>
+      <button type="submit">افزودن مقاله</button>
+    </form>
+  </div>
+</section>
+
+<section id="about">
+  <h2>درباره ما</h2>
+  <p>مرجعی برای معرفی و تحلیل جنگنده‌های مدرن در سراسر دنیا.</p>
+</section>
+
+<footer>© 2025 مرجع جنگنده‌های مدرن</footer>
+
+<script>
+let articles = [
+  {
+    title: "F-35 Lightning II",
+    summary: "F-35 یک جنگنده نسل پنجم چندمنظوره با رادارگریزی و توانایی انجام مأموریت هوایی، زمینی و دریایی.",
+    full: `F-35 Lightning II، محصول Lockheed Martin، یک جنگنده نسل پنجم چندمنظوره است که توانایی انجام مأموریت‌های هوایی، زمینی و دریایی را دارد. این جنگنده دارای فناوری رادارگریزی، سامانه‌های پیشرفته الکترونیکی و تسلیحات متنوع برای مأموریت‌های پیچیده است. توانایی نشست و برخاست کوتاه و عمودی در نسخه B آن، قدرت مانور و انعطاف‌پذیری آن را افزایش می‌دهد.`,
+    image: "https://upload.wikimedia.org/wikipedia/commons/7/77/RAF_F-35B_integration_flying_training_with_USAF_B-2_30092019_-_4.jpg"
+  },
+  {
+    title: "F-22 Raptor",
+    summary: "F-22 جنگنده نسل پنجم برتری هوایی با رادارگریزی و سرعت بالا.",
+    full: `F-22 Raptor، ساختهٔ Lockheed Martin، یک جنگندهٔ نسل پنجم برتری هوایی است که به منظور مقابله با تهدیدهای هوایی طراحی شده است. این جنگنده دارای فناوری رادارگریزی، موتورهای بسیار قدرتمند برای دستیابی به سرعت مافوق صوت بدون پس‌سوز، و سیستم‌های الکترونیکی پیشرفته برای شناسایی و مقابله با تهدیدها است. F-22 توانایی انجام مأموریت‌های طولانی و پیچیده با دقت بالا را دارد.`,
+    image: "https://upload.wikimedia.org/wikipedia/commons/3/3d/F22_Training_Formation.jpg"
+  },
+  {
+    title: "J-20 Mighty Dragon",
+    summary: "J-20 جنگنده نسل پنجم چین با رادارگریزی و برد بلند.",
+    full: `J-20، محصول Chengdu Aircraft Industry Group، جنگنده نسل پنجم چین است و با فناوری رادارگریزی و سرعت بالا توانایی مقابله با تهدیدهای هوایی و دریایی را دارد. این هواپیما مجهز به سامانه‌های هدایت پیشرفته، تسلیحات مدرن و قابلیت پرواز طولانی مدت است و بخشی از برنامه چین برای دستیابی به برتری هوایی در منطقه محسوب می‌شود.`,
+    image: "https://upload.wikimedia.org/wikipedia/commons/4/44/Chengdu_J-20_Fighter.jpg"
+  },
+  {
+    title: "SOH-57 Stealth Hawk",
+    summary: "SOH-57 جنگنده نسل پنجم آزمایشی با رادارگریزی و مأموریت شناسایی و ضربه دقیق.",
+    full: `SOH-57 یک جنگنده آزمایشی نسل پنجم است که برای مأموریت‌های شناسایی و حملهٔ دقیق طراحی شده است. این هواپیما مجهز به فناوری رادارگریزی، سامانه‌های حسگر پیشرفته و قابلیت حمل مهمات دقیق با برد بلند است. طراحی آئرودینامیک پیشرفته آن به افزایش مانور و کاهش سطح مقطع راداری کمک می‌کند.`,
+    image: "https://upload.wikimedia.org/wikipedia/commons/0/0f/SOH-57_Prototype.jpg"
+  }
+];
+
+function renderArticles(){
+  const container = document.getElementById('articles-container');
+  container.innerHTML='';
+  articles.forEach((art,i)=>{
+    const div=document.createElement('div');
+    div.className='article';
+    div.innerHTML=`<img src="${art.image}" alt="${art.title}"><h3>${art.title}</h3><p>${art.summary}</p>`;
+    div.addEventListener('click',()=>openArticle(art,i));
+    container.appendChild(div);
+  });
+}
+
+function openArticle(art,i){
+  const w = window.open('', '_blank', 'width=800,height=600,scrollbars=yes');
+  w.document.write(`<html lang='fa' dir='rtl'><head><title>${art.title}</title>
+    <meta charset='utf-8'>
+    <style>body{background:#0d0d0d;color:#f2f2f2;padding:20px;font-family:sans-serif;}h1{border-bottom:2px solid #bfbfbf;}img{max-width:100%;border-radius:10px;}button{margin:5px;}</style>
+    </head><body>
+    <h1>${art.title}</h1>
+    <img src="${art.image}" alt="${art.title}">
+    <p>${art.full}</p>
+    <button onclick="window.close()">بستن پنجره</button>
+    <button onclick="editArticle()">ویرایش</button>
+    <button onclick="deleteArticle()">حذف</button>
+    <script>
+      const adminPass='amirhk28';
+      function editArticle(){
+        const p=prompt('رمز ادمین را وارد کنید:');
+        if(p!==adminPass){alert('رمز اشتباه است!');return;}
+        const newFull=prompt('متن کامل مقاله:',\`${art.full}\`);
+        if(newFull) art.full=newFull;
+        const newSummary=prompt('خلاصه مقاله:',\`${art.summary}\`);
+        if(newSummary) art.summary=newSummary;
+        const newTitle=prompt('عنوان مقاله:',\`${art.title}\`);
+        if(newTitle) art.title=newTitle;
+        alert('مقاله بروزرسانی شد! لطفاً صفحه اصلی را رفرش کنید.');
+      }
+      function deleteArticle(){
+        const p=prompt('رمز ادمین را وارد کنید:');
+        if(p!==adminPass){alert('رمز اشتباه است!');return;}
+        window.opener.articles.splice(${i},1);
+        alert('مقاله حذف شد! لطفاً صفحه اصلی را رفرش کنید.');
+        window.close();
+      }
+    <\/script>
+    </body></html>`);
+}
+
+document.getElementById('new-article-form').addEventListener('submit',e=>{
+  e.preventDefault();
+  const pass=document.getElementById('admin-password').value;
+  if(pass!=='amirhk28'){alert('رمز اشتباه است!');return;}
+  const title=document.getElementById('article-title').value;
+  const summary=document.getElementById('article-summary').value;
+  const full=document.getElementById('article-full').value;
+  const image=document.getElementById('article-image').value;
+  articles.push({title,summary,full,image});
+  renderArticles();
+  e.target.reset();
+});
+
+renderArticles();
+</script>
+</body>
+</html>
